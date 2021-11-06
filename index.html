@@ -5392,7 +5392,7 @@ var $author$project$Main$Yes = {$: 6};
 var $author$project$Main$rules = function (ast) {
 	rules:
 	while (true) {
-		_v0$14:
+		_v0$16:
 		while (true) {
 			switch (ast.$) {
 				case 2:
@@ -5437,7 +5437,7 @@ var $author$project$Main$rules = function (ast) {
 							var _v4 = ast.a;
 							return $author$project$Main$No;
 						default:
-							break _v0$14;
+							break _v0$16;
 					}
 				case 0:
 					switch (ast.a.$) {
@@ -5462,7 +5462,12 @@ var $author$project$Main$rules = function (ast) {
 									ast = $temp$ast;
 									continue rules;
 								default:
-									break _v0$14;
+									var l = ast.a;
+									var r = ast.b;
+									return A2(
+										$author$project$Main$Conj,
+										$author$project$Main$rules(l),
+										$author$project$Main$rules(r));
 							}
 					}
 				case 1:
@@ -5488,11 +5493,16 @@ var $author$project$Main$rules = function (ast) {
 									ast = $temp$ast;
 									continue rules;
 								default:
-									break _v0$14;
+									var l = ast.a;
+									var r = ast.b;
+									return A2(
+										$author$project$Main$Disj,
+										$author$project$Main$rules(l),
+										$author$project$Main$rules(r));
 							}
 					}
 				default:
-					break _v0$14;
+					break _v0$16;
 			}
 		}
 		return ast;

@@ -142,6 +142,12 @@ rules ast =
         Disj v No ->
             rules v
 
+        Conj l r ->
+            Conj (rules l) (rules r)
+
+        Disj l r ->
+            Disj (rules l) (rules r)
+
         _ ->
             ast
 

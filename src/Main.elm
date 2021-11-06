@@ -130,6 +130,18 @@ rules ast =
         Disj No v ->
             rules v
 
+        Conj _ No ->
+            No
+
+        Conj v Yes ->
+            rules v
+
+        Disj _ Yes ->
+            Yes
+
+        Disj v No ->
+            rules v
+
         _ ->
             ast
 
